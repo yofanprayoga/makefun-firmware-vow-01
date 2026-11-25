@@ -14,6 +14,9 @@ VOW = (
 
 
 def main() -> None:
+    # Gate: /output/entry.txt must be UTF-8 text of 1 to 200 characters.
+    assert 1 <= len(VOW) <= 200, f"vow is {len(VOW)} characters"
+    assert VOW.count(".") == 1, "vow must be a single sentence"
     out = Path("/output/entry.txt")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(VOW, encoding="utf-8")
